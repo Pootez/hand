@@ -38,6 +38,10 @@ public class Hand {
         this.cards = cards;
     }
 
+    public void addCards(ArrayList<Card> newCards) {
+        cards.addAll(newCards);
+    }
+
     /**
      * Adds the sum of the hands face-cards.
      *
@@ -61,8 +65,8 @@ public class Hand {
      */
 
     public String getHearts() {
-        String hearts = "";
         if (!cards.isEmpty()) {
+            String hearts = "";
             for (Card card : cards) {
                 if (card.getSuit() == 'H') {
                     hearts += card.getAsString() + " ";
@@ -88,6 +92,30 @@ public class Hand {
         if (!cards.isEmpty()) {
             for (Card card : cards) {
                 if (card.getSuit() == 'S' && card.getFace() == 12) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Checks if there is a straight in the hand.
+     *
+     * @return True if there is a straight in the hand
+     */
+
+    public boolean ifStraight() {
+        if (!cards.isEmpty() || cards.size() < 5) {
+            int[] straight = new int[]{0,0,0,0};
+            for (Card card : cards) {
+                switch (card.getSuit()) {
+                    case 'S' -> straight[0]++;
+                    case 'H' -> straight[1]++;
+                    case 'D' -> straight[2]++;
+                    case 'C' -> straight[3]++;
+                }
+                if(straight[0] >= 5 || straight[1] >= 5 || straight[2] >= 5 || straight[3] >= 5) {
                     return true;
                 }
             }

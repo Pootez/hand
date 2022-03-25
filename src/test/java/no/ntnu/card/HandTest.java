@@ -51,4 +51,12 @@ class HandTest {
         Hand otherHand = new Hand(deck.dealHand(26));
         assert(hand.ifQueenOfSpades() != otherHand.ifQueenOfSpades());
     }
+
+    @Test
+    void ifStraight() {
+        hand.addCards(deck.dealHand(4));
+        assert(!hand.ifStraight());
+        hand.addCards(deck.dealHand(16));
+        assert(hand.ifStraight());
+    }
 }
