@@ -53,4 +53,28 @@ public class Hand {
             return 0;
         }
     }
+
+    /**
+     * Finds the heart cards in the hand.
+     *
+     * @return List of heart cards formatted("H1 H2 H13"), "No Hearts" if none, "No Cards" if no cards are in hand
+     */
+
+    public String getHearts() {
+        String hearts = "";
+        if (!cards.isEmpty()) {
+            for (Card card : cards) {
+                if (card.getSuit() == 'H') {
+                    hearts += card.getAsString() + " ";
+                }
+            }
+            if (!hearts.equals("")) {
+                return hearts.substring(0,hearts.length()-1);
+            } else {
+                return "No Hearts";
+            }
+        } else {
+            return "No Cards";
+        }
+    }
 }

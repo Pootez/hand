@@ -27,4 +27,21 @@ class HandTest {
 
         assertNotEquals(0,hand.sumFaces());
     }
+
+    @Test
+    void getHearts() {
+        hand.getCards().add(deck.getCards().get(13));
+        hand.getCards().add(deck.getCards().get(14));
+        hand.getCards().add(deck.getCards().get(15));
+        assert(hand.getHearts().equals("H1 H2 H3"));
+
+        hand = new Hand();
+        assert(hand.getHearts().equals("No Cards"));
+
+        hand.getCards().add(deck.getCards().get(0));
+        hand.getCards().add(deck.getCards().get(1));
+        hand.getCards().add(deck.getCards().get(2));
+        assert(hand.getHearts().equals("No Hearts"));
+        assert(!hand.getHearts().equals("No Cards"));
+    }
 }
