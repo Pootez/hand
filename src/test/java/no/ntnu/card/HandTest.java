@@ -1,16 +1,23 @@
 package no.ntnu.card;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class HandTest {
 
+    private Deck deck;
+    private Hand hand;
+
+    @BeforeEach
+    void setup() {
+        deck = new Deck();
+        hand = new Hand();
+    }
+
     @Test
     void sumFaces() {
-        Deck deck = new Deck();
-        Hand hand = new Hand();
-
         hand.getCards().add(deck.getCards().get(0));
         hand.getCards().add(deck.getCards().get(1));
         hand.getCards().add(deck.getCards().get(2));
