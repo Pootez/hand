@@ -37,4 +37,20 @@ public class Hand {
     public void setCards(ArrayList<Card> cards) {
         this.cards = cards;
     }
+
+    /**
+     * Adds the sum of the hands face-cards.
+     *
+     * @return Sum of face cards (int)
+     */
+
+    public int sumFaces() {
+        if (!cards.isEmpty()) {
+            return cards.stream()
+                    .map(Card::getFace)
+                    .reduce(0, Integer::sum);
+        } else {
+            return 0;
+        }
+    }
 }
