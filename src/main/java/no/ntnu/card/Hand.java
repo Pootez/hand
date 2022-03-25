@@ -88,7 +88,7 @@ public class Hand {
      * @return True if queen of spades is in hand
      */
 
-    public boolean ifQueenOfSpades() {
+    public boolean hasQueenOfSpades() {
         if (!cards.isEmpty()) {
             for (Card card : cards) {
                 if (card.getSuit() == 'S' && card.getFace() == 12) {
@@ -105,7 +105,7 @@ public class Hand {
      * @return True if there is a straight in the hand
      */
 
-    public boolean ifStraight() {
+    public boolean hasStraight() {
         if (!cards.isEmpty() || cards.size() < 5) {
             int[] straight = new int[]{0,0,0,0};
             for (Card card : cards) {

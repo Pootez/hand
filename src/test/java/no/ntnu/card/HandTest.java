@@ -46,17 +46,17 @@ class HandTest {
     }
 
     @Test
-    void ifQueenOfSpades() {
+    void hasQueenOfSpades() {
         hand.setCards(deck.dealHand(26));
         Hand otherHand = new Hand(deck.dealHand(26));
-        assert(hand.ifQueenOfSpades() != otherHand.ifQueenOfSpades());
+        assert(hand.hasQueenOfSpades() != otherHand.hasQueenOfSpades());
     }
 
     @Test
-    void ifStraight() {
+    void hasStraight() {
         hand.addCards(deck.dealHand(4));
-        assert(!hand.ifStraight());
+        assert(!hand.hasStraight());
         hand.addCards(deck.dealHand(16));
-        assert(hand.ifStraight());
+        assert(hand.hasStraight());
     }
 }
