@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DeckOfCardsTest {
+class DeckTest {
 
-    private DeckOfCards deck;
+    private Deck deck;
 
     @BeforeEach
     void setup() {
-        deck = new DeckOfCards();
+        deck = new Deck();
     }
 
     @Test
@@ -28,7 +28,7 @@ class DeckOfCardsTest {
 
     @Test
     void dealHand() {
-        ArrayList<PlayingCard> hand = deck.dealHand(5);
+        ArrayList<Card> hand = deck.dealHand(5);
         assertEquals(5,hand.size());
         assertEquals(47, deck.getCards().size());
     }

@@ -8,7 +8,7 @@ package no.ntnu.card;
  * @author ntnu
  * @version 2020-01-10
  */
-public class PlayingCard {
+public class Card {
 
     private final char suit; // 'S'=spade, 'H'=heart, 'D'=diamonds, 'C'=clubs
     private final int face; // a number between 1 and 13
@@ -20,7 +20,7 @@ public class PlayingCard {
      *             'H' for Heart, 'D' for Diamonds and 'C' for clubs
      * @param face The face value of the card, an integer between 1 and 13
      */
-    public PlayingCard(char suit, int face) {
+    public Card(char suit, int face) {
         this.suit = suit;
         this.face = face;
     }

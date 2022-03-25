@@ -1,7 +1,6 @@
 package no.ntnu.card;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Random;
 
 /**
@@ -11,10 +10,10 @@ import java.util.Random;
  * @version 2022-03-25
  */
 
-public class DeckOfCards {
+public class Deck {
 
     private final char[] suit = { 'S', 'H', 'D', 'C' };
-    private ArrayList<PlayingCard> cards;
+    private ArrayList<Card> cards;
 
     /**
      * Constructs a deck of cards form an existing ArrayList.
@@ -22,7 +21,7 @@ public class DeckOfCards {
      * @param cards ArrayList of cards
      */
 
-    public DeckOfCards(ArrayList<PlayingCard> cards) {
+    public Deck(ArrayList<Card> cards) {
         this.cards = cards;
     }
 
@@ -30,11 +29,11 @@ public class DeckOfCards {
      * Constructs a reguler deck of 52 cards.
      */
 
-    public DeckOfCards() {
+    public Deck() {
         cards = new ArrayList<>();
         for (char temp : suit) {
             for (int i = 1; i < 14; i++) {
-                cards.add(new PlayingCard(temp,i));
+                cards.add(new Card(temp,i));
             }
         }
     }
@@ -46,11 +45,11 @@ public class DeckOfCards {
      * @return Collection of n playing cards
      */
 
-    public ArrayList<PlayingCard> dealHand(int n) {
+    public ArrayList<Card> dealHand(int n) {
         if (n < 1 || n > 52) {
             throw new IllegalArgumentException("Not a valid number of cards");
         } else {
-            ArrayList<PlayingCard> hand = new ArrayList<>();
+            ArrayList<Card> hand = new ArrayList<>();
             Random rand = new Random();
             for (int i = 0; i < n; i++) {
                 int temp = rand.nextInt(cards.size());
@@ -61,11 +60,11 @@ public class DeckOfCards {
         }
     }
 
-    public ArrayList<PlayingCard> getCards() {
+    public ArrayList<Card> getCards() {
         return cards;
     }
 
-    public void setCards(ArrayList<PlayingCard> cards) {
+    public void setCards(ArrayList<Card> cards) {
         this.cards = cards;
     }
 }
