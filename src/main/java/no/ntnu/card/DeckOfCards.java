@@ -14,9 +14,19 @@ public class DeckOfCards {
     private final char[] suit = { 'S', 'H', 'D', 'C' };
     private ArrayList<PlayingCard> cards;
 
+    /**
+     * Constructs a deck of cards form an existing ArrayList.
+     *
+     * @param cards ArrayList of cards
+     */
+
     public DeckOfCards(ArrayList<PlayingCard> cards) {
         this.cards = cards;
     }
+
+    /**
+     * Constructs a reguler deck of 52 cards.
+     */
 
     public DeckOfCards() {
         cards = new ArrayList<>();
