@@ -57,7 +57,7 @@ public class Hand {
     /**
      * Finds the heart cards in the hand.
      *
-     * @return List of heart cards formatted("H1 H2 H13"), "No Hearts" if none, "No Cards" if no cards are in hand
+     * @return List of heart cards formatted("H1 H2 H13"), "No Hearts" if none, "No Cards" if no cards are in hand.
      */
 
     public String getHearts() {
@@ -76,5 +76,22 @@ public class Hand {
         } else {
             return "No Cards";
         }
+    }
+
+    /**
+     * Checks if the queen of spades is in hand.
+     *
+     * @return True if queen of spades is in hand
+     */
+
+    public boolean ifQueenOfSpades() {
+        if (!cards.isEmpty()) {
+            for (Card card : cards) {
+                if (card.getSuit() == 'S' && card.getFace() == 12) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

@@ -44,4 +44,11 @@ class HandTest {
         assert(hand.getHearts().equals("No Hearts"));
         assert(!hand.getHearts().equals("No Cards"));
     }
+
+    @Test
+    void ifQueenOfSpades() {
+        hand.setCards(deck.dealHand(26));
+        Hand otherHand = new Hand(deck.dealHand(26));
+        assert(hand.ifQueenOfSpades() != otherHand.ifQueenOfSpades());
+    }
 }
