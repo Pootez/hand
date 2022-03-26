@@ -8,11 +8,24 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 
+/**
+ * Controller for the application events.
+ *
+ * @author sondr
+ * @version 2022-03-26
+ */
+
 public class CardController {
 
     private Deck deck;
     private Hand hand;
     private GraphicsContext gc;
+
+    /**
+     * Constructs the controller for the application with a deck, hand and the graphics context of the canvas.
+     *
+     * @param gc GraphicsContext of the application canvas
+     */
 
     public CardController(GraphicsContext gc) {
         this.gc = gc;
@@ -20,12 +33,29 @@ public class CardController {
         hand = new Hand();
     }
 
-    public ObservableList<String> onDrawHandClick() {
+    /**
+     * Handles the Deal Hand button event.
+     *
+     * @return ObservableList for the results of checking the hand
+     */
+
+    public ObservableList<String> onDealHandClick() {
         deck = new Deck();
         hand = new Hand(deck.dealHand(7));
         drawCards(0,0);
-        return checkHand();
+        return FXCollections.observableArrayList(
+                String.valueOf(hand.sumFaces()),
+                hand.getHearts(),
+                String.valueOf(hand.hasFlush()),
+                String.valueOf(hand.hasQueenOfSpades())
+        );
     }
+
+    /**
+     * Handles mousemovement on the application where the canvas should update.
+     *
+     * @param event MouseEvent
+     */
 
     public void updateCanvas(MouseEvent event) {
         double x = event.getSceneX();
@@ -34,6 +64,13 @@ public class CardController {
         drawBackGround();
         drawCards(x,y);
     }
+
+    /**
+     * Draws the all the cards and the card the mouse is hovering.
+     *
+     * @param x Mouse's x-position
+     * @param y Mouse's y-position
+     */
 
     private void drawCards(double x, double y) {
         if (!hand.getCards().isEmpty()) {
@@ -68,19 +105,12 @@ public class CardController {
         }
     }
 
+    /**
+     * Draws a gray background.
+     */
+
     public void drawBackGround() {
             gc.setFill(Color.DIMGRAY);
             gc.fillRect(0,0,800,600);
-    }
-
-
-    private ObservableList<String> checkHand() {
-        return FXCollections.observableArrayList(
-                String.valueOf(hand.sumFaces()),
-                hand.getHearts(),
-                String.valueOf(hand.hasFlush()),
-                String.valueOf(hand.hasQueenOfSpades())
-
-                );
     }
 }

@@ -12,6 +12,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+/**
+ * Houses the application.
+ *
+ * @author sondesp
+ * @version 2022-03-26
+ */
+
 public class CardApplication extends Application {
 
     private CardController ct;
@@ -46,7 +53,7 @@ public class CardApplication extends Application {
         Button btn = new Button();
         btn.setText("Deal Hand");
         btn.setOnAction(event ->
-                results.setItems(ct.onDrawHandClick()));
+                results.setItems(ct.onDealHandClick()));
 
         HBox hBox = new HBox();
         hBox.getChildren().add(first);
