@@ -105,7 +105,7 @@ public class Hand {
      * @return True if there is a straight in the hand
      */
 
-    public boolean hasStraight() {
+    public boolean hasFlush() {
         if (!cards.isEmpty() || cards.size() < 5) {
             int[] straight = new int[]{0,0,0,0};
             for (Card card : cards) {

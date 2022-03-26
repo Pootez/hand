@@ -53,10 +53,10 @@ class HandTest {
     }
 
     @Test
-    void hasStraight() {
+    void hasFlush() {
         hand.addCards(deck.dealHand(4));
-        assert(!hand.hasStraight());
+        assert(!hand.hasFlush());
         hand.addCards(deck.dealHand(16));
-        assert(hand.hasStraight());
+        assert(hand.hasFlush());
     }
 }

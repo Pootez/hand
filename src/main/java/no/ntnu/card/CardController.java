@@ -78,8 +78,9 @@ public class CardController {
         return FXCollections.observableArrayList(
                 String.valueOf(hand.sumFaces()),
                 hand.getHearts(),
-                String.valueOf(hand.hasQueenOfSpades()),
-                String.valueOf(hand.hasStraight())
+                String.valueOf(hand.hasFlush()),
+                String.valueOf(hand.hasQueenOfSpades())
+
                 );
     }
 }
