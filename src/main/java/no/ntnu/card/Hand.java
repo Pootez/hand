@@ -107,15 +107,15 @@ public class Hand {
 
     public boolean hasFlush() {
         if (!cards.isEmpty() || cards.size() < 5) {
-            int[] straight = new int[]{0,0,0,0};
+            int[] flush = new int[]{0,0,0,0};
             for (Card card : cards) {
                 switch (card.getSuit()) {
-                    case 'S' -> straight[0]++;
-                    case 'H' -> straight[1]++;
-                    case 'D' -> straight[2]++;
-                    case 'C' -> straight[3]++;
+                    case 'S' -> flush[0]++;
+                    case 'H' -> flush[1]++;
+                    case 'D' -> flush[2]++;
+                    case 'C' -> flush[3]++;
                 }
-                if(straight[0] >= 5 || straight[1] >= 5 || straight[2] >= 5 || straight[3] >= 5) {
+                if(flush[0] >= 5 || flush[1] >= 5 || flush[2] >= 5 || flush[3] >= 5) {
                     return true;
                 }
             }
